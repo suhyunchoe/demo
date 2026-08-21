@@ -1,0 +1,28 @@
+{
+  "id": "clear-auditable-radiology-foundation-model",
+  "title": "CLEAR: an auditable foundation model for radiology grounded in clinical concepts",
+  "authors": [
+    "Tianyu Han",
+    "Riga Wu",
+    "Yu Tian",
+    "Firas Khader",
+    "Lisa C. Adams",
+    "Keno K. Bressem",
+    "Christos Davatzikos",
+    "Jakob Nikolas Kather",
+    "Li Shen",
+    "David A. Mankoff",
+    "Eduardo Mortani Barbosa",
+    "Daniel Truhn"
+  ],
+  "venue": "Nature Biomedical Engineering",
+  "year": 2026,
+  "source": "OpenAlex",
+  "url": "https://doi.org/10.1038/s41551-026-01741-4",
+  "abstract": "'Black box' deep learning models for medical image interpretation limit clinical trust and analysis of performance degradation. Here we introduce Concept-Level Embeddings for Auditable Radiology (CLEAR), an auditable foundation model based on clinical concepts. Trained on over 0.87 million image-report pairs from 239,391 patients, CLEAR learns a visual representation and projects chest X-rays into a semantically rich space defined by large language model embeddings, making every prediction decomposable into weighted contributions from individual radiological observations. External validation on four large, physician-annotated datasets from the United States, Europe and Asia shows that CLEAR not only achieves state-of-the-art classification performance but also enables applications: auditable zero-shot pathology detection, systematic identification of radiological confounders and the creation of expert-level concept bottleneck models from data-driven concepts. By integrating clinical knowledge directly into its reasoning process, CLEAR offers a framework for robust model auditing, safer deployment and enhanced physician-AI collaboration, advancing towards trustworthy medical AI.",
+  "axes": ["기관 간 일반화", "다중 소견 분류"],
+  "takeaway": "임상 개념 임베딩 기반 흉부 X-ray 파운데이션 모델이 미국·유럽·아시아 4개 외부 데이터셋에서 최고 수준의 소견 분류 성능과 예측 해석 가능성을 동시에 달성했다.",
+  "relevance": "우리 코호트는 5개 기관, 9개 장비에서 수집된 272건의 흉부 X-ray로 구성되고 Infiltration, Atelectasis, Nodule, Effusion 등 다중 소견 라벨이 공존하는 다중 레이블 구조를 가진다. CLEAR가 강조하는 기관 간 외부 검증과 개념 기반 다중 소견 분류는 이 코호트의 기관·장비 다양성 및 다중 라벨 특성과 직접 맞닿아 있다.",
+  "caveat": "우리 데이터는 판독 자유기술문(report_text)을 모델 학습에 사용하지 않으며 239,391명 규모의 사전학습 데이터도 없어, CLEAR가 보고한 정확도나 감사가능성(auditability) 수준을 우리 코호트만으로 재현하거나 검증할 수 없다.",
+  "check": "우리 코호트의 5개 기관별 소견 분포 차이가 CLEAR류 개념 기반 모델의 제로샷 성능에 어떤 영향을 주는지 소규모 외부검증으로 확인해볼 수 있는가?"
+}
