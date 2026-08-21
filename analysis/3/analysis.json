@@ -1,0 +1,28 @@
+{
+  "paper": "clear-auditable-radiology-foundation-model",
+  "verdict": "불충분",
+  "summary": "CLEAR는 87만 건 규모의 이미지-리포트 쌍(239,391명)으로 사전학습한 개념 임베딩 기반 흉부 X-ray 파운데이션 모델을, 미국·유럽·아시아 4개 외부 기관 데이터셋에서 제로샷/컨셉 병목 모델로 외부 검증했다. 우리 코호트(272건, 5개 기관, 9개 장비)에서 같은 종류의 기관 간 일반화·Nodule 제로샷 탐지 성능을 재현할 수 있는지 확인했다.",
+  "datasets": ["0.87M image-report pairs (239,391 patients, internal pretraining)", "4 external physician-annotated validation cohorts (US/Europe/Asia)"],
+  "dataset_note": "CLEAR의 핵심 주장(개념 임베딩 학습, 감사가능성, 제로샷 병리 탐지)은 대규모 리포트 자유기술문(report_text)을 언어모델 임베딩과 정렬해 학습하는 과정과, 기관당 수백~수천 건 규모의 외부 검증 표본에 의존한다. 신뢰할 수 있는 기관별/서브그룹별 성능 추정치(특히 민감도·거짓음성률)를 내려면 그런 표본 크기가 필요하다.",
+  "diffs": [
+    {"ok": false, "text": "report_text 기반 개념 임베딩 사전학습에 쓸 수 있는 239,391명 규모 데이터가 우리에게는 없음 (우리 코호트: 153명, 272건)"},
+    {"ok": false, "text": "CLEAR 외부검증 코호트는 기관당 수백~수천 건이지만, 우리 코호트는 기관당 48~62건, Nodule 양성은 기관당 1~4건뿐"},
+    {"ok": true, "text": "5개 기관(INST01–05)·9개 장비(DEV01–09)에 걸친 다기관·다중 소견 라벨 구조는 CLEAR의 외부검증 설계와 개념적으로 유사함"},
+    {"ok": true, "text": "findings_label이 다중 레이블(예: 'Effusion|Infiltration|Nodule')로 저장되어 있어 CLEAR가 강조하는 다중 소견 분류 평가는 라벨 구조상 가능함"},
+    {"ok": false, "text": "Nodule 양성 12건(전체 4.4%) 중 5건(42%)이 다른 소견과 동반되어 있어, 순수 Nodule(7건)과 혼합 Nodule(5건)을 나눠 보면 기관당 표본이 더 작아짐"}
+  ],
+  "insight": "우리 데이터로는 CLEAR가 보고한 정확도나 기관 간 일반화 수준을 통계적으로 재현·검증할 수 없다. 특히 물리쌤이 우려한 '거짓음성(놓친 결절)'은 기관당 1~4건, 장비당 1~4건의 분모로는 신뢰구간을 계산할 수 없는 수준이라, 정량적 민감도/특이도 지표 대신 이 12건에 대한 정성적·사례 기반 검토만 제안할 수 있다.",
+  "evidence": [
+    {"label": "전체 코호트", "value": "272건 / 153명"},
+    {"label": "기관 수", "value": "5개 (INST01–05)"},
+    {"label": "기관별 총 건수", "value": "62/56/54/48/52"},
+    {"label": "Nodule 양성 건수", "value": "12건 (4.4%)"},
+    {"label": "기관별 Nodule 건수", "value": "INST01:4, INST02:2, INST03:1, INST04:2, INST05:3"},
+    {"label": "장비별 Nodule 건수(9개 장비 중 7개에 존재)", "value": "DEV02:1, DEV03:1, DEV04:1, DEV05:2, DEV06:2, DEV07:1, DEV09:4"},
+    {"label": "순수 vs 혼합 Nodule", "value": "순수 7건 / 혼합 5건"},
+    {"label": "혼합 Nodule 동반 소견", "value": "Atelectasis+Nodule(1), Effusion+Infiltration+Nodule(1), Effusion+Infiltration+Nodule+Pleural_Thickening(1), Effusion+Nodule(1), Fibrosis+Nodule(1)"}
+  ],
+  "figure": "",
+  "note": "이 분석은 가설 생성용이다. Nodule 서브그룹 표본이 매우 작아(기관당 최대 4건), 여기서 산출한 어떤 비율도 계산된 민감도/거짓음성률로 해석해서는 안 되며, 병합 전 임상의가 12건의 실제 리포트를 정성적으로 재검토할 것을 권장한다.",
+  "checks": []
+}
