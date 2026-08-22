@@ -1,0 +1,15 @@
+{
+  "id": "ce-reporter-capsule-endoscopy-video-to-report",
+  "title": "An explainable generative AI system for video-to-report generation in capsule endoscopy",
+  "authors": ["Boyun Zheng", "Yu Jiang", "Dejun Fan", "Xinyu Liu", "Xiaoqing Guo", "Shengyuan Liu", "Bin Chen", "Mingjie Wang", "Jinni Luo", "Jin Tao", "Jiancong Hu", "Lichao Sun"],
+  "venue": "npj Digital Medicine",
+  "year": 2026,
+  "source": "OpenAlex",
+  "url": "https://doi.org/10.1038/s41746-026-03079-2",
+  "abstract": "Abstract Gastrointestinal (GI) diseases remain a significant global health burden due to elevated morbidity and mortality. Accurate and timely diagnosis, especially for small-bowel conditions, remains challenging because capsule endoscopy (CE) videos last 6–12 hours and require prolonged manual review. While artificial intelligence has advanced CE analysis, integrated video-to-report generation remains largely unexplored. We introduce CE Reporter, an explainable system transforming full-length CE videos into evidence-supported diagnostic reports through multi-task keyframe detection and time-aware vision-language alignment. CE Reporter was trained on MICS-CE, a multicenter, multi-device dataset comprising 1002 video-report pairs, 109 million frames, 11,028 video hours, and 29,338 expert-annotated keyframe-text pairs. The model performed strongly across three dimensions: (1) Report quality: exceeding existing multimodal large language models in linguistic coherence and diagnostic agreement (BLEU-ave: 0.572 vs. 0.523; small intestine lesion F1-score: 0.79 vs. 0.58); (2) Clinician evaluation: achieving high correctness, completeness, and conciseness ratings, outperforming resident clinicians while reducing reporting time by 91.9%; (3) Clinical utility: generating explainable reports supported by visual keyframes and maintaining competitive performance across centers and capsule devices (F1 score: 0.72–0.81). These findings establish a foundation for automated CE video-to-report generation and highlight its potential for efficient and transparent clinical workflows.",
+  "axes": ["다기관 일반화", "판독 보고서 자동생성"],
+  "takeaway": "다기관·다장비 캡슐내시경 데이터로 학습한 설명 가능한 비디오-보고서 생성 시스템이 레지던트 대비 높은 판독 품질과 91.9%의 판독 시간 단축을 보였다.",
+  "relevance": "본 코호트의 report_text/clinical_info 필드처럼 자유 텍스트 판독 보고서와 영상이 짝지어져 있는 구조는, 이 논문의 영상-보고서 정렬(vision-language alignment) 접근을 흉부 X-ray 판독 자동화 검토에 참고할 만한 근거가 된다.",
+  "caveat": "본 데이터는 정지 영상(흉부 X-ray) 단일 프레임이며 캡슐내시경처럼 장시간 비디오 스트림이 아니므로, 키프레임 탐지 및 시간 정렬 기법을 그대로 적용하기는 어렵다.",
+  "check": "우리 보고서(report_text) 중 소견-부위 대응이 명확한 사례 비율을 확인해, 영상-텍스트 정렬 기반 보조 판독 도구 도입이 실질적으로 유용할지 가늠해볼 수 있다."
+}
